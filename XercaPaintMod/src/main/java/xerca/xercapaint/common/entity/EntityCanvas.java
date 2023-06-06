@@ -122,18 +122,16 @@ public class EntityCanvas extends HangingEntity implements IEntityAdditionalSpaw
                 }
             }
             ItemStack canvasItem;
-            if(canvasType == CanvasType.SMALL){
-                canvasItem = new ItemStack(Items.ITEM_CANVAS);
-            }
-            else if(canvasType == CanvasType.LARGE){
-                canvasItem = new ItemStack(Items.ITEM_CANVAS_LARGE);
-            }
-            else if(canvasType == CanvasType.LONG){
-                canvasItem = new ItemStack(Items.ITEM_CANVAS_LONG);
-            }
-            else if(canvasType == CanvasType.TALL){
-                canvasItem = new ItemStack(Items.ITEM_CANVAS_TALL);
-            }else{
+            if(canvasType == CanvasType.SMALL){canvasItem =      new ItemStack(Items.ITEM_CANVAS);} // 1x1
+            else if(canvasType == CanvasType.TALL){canvasItem = new ItemStack(Items.ITEM_CANVAS_TALL);} // 1x2
+            else if(canvasType == CanvasType.LONG){canvasItem = new ItemStack(Items.ITEM_CANVAS_LONG);} // 2x1
+            else if(canvasType == CanvasType.LARGE){canvasItem = new ItemStack(Items.ITEM_CANVAS_LARGE);} // 2x2
+            else if(canvasType == CanvasType.X3Y2){canvasItem = new ItemStack(Items.ITEM_CANVAS_X3Y2);} // 3x2
+            else if(canvasType == CanvasType.X3Y3){canvasItem = new ItemStack(Items.ITEM_CANVAS_X3Y3);} // 3x3
+            else if(canvasType == CanvasType.X4Y2){canvasItem = new ItemStack(Items.ITEM_CANVAS_X4Y2);} // 4x2
+            else if(canvasType == CanvasType.X4Y3){canvasItem = new ItemStack(Items.ITEM_CANVAS_X4Y3);} // 4x3
+            else if(canvasType == CanvasType.X4Y4){canvasItem = new ItemStack(Items.ITEM_CANVAS_X4Y4);} // 4x4
+            else{
                 XercaPaint.LOGGER.error("Invalid canvas type");
                 return;
             }
@@ -351,7 +349,7 @@ public class EntityCanvas extends HangingEntity implements IEntityAdditionalSpaw
     }
 
     public @NotNull InteractionResult interact(@NotNull Player player, @NotNull InteractionHand hand) {
-        if(canvasType == CanvasType.SMALL || canvasType == CanvasType.LARGE){
+        if(canvasType == CanvasType.SMALL || canvasType == CanvasType.LARGE || canvasType == CanvasType.X3Y3 || canvasType == CanvasType.X4Y4 ){
             if (!this.level.isClientSide) {
                 setRotation(getRotation() + 1);
             }

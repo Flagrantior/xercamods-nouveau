@@ -25,35 +25,42 @@ public class EaselCanvasLayer extends RenderLayer<EntityEasel, EaselModel> {
 
             switch (itemCanvas.getCanvasType()){
                 case SMALL -> {
-                    poseStack.scale(1.5F, 1.5f, 1.5f);
-                    poseStack.mulPose(Vector3f.YP.rotationDegrees(180.0F));
-                    poseStack.mulPose(Vector3f.ZP.rotationDegrees(180.0F));
-                    poseStack.mulPose(Vector3f.XP.rotationDegrees(-15.0F));
+                    poseStack.scale(1.5F, 1.5f, 1.5f);  poseStack.mulPose(Vector3f.YP.rotationDegrees(180.0F));poseStack.mulPose(Vector3f.ZP.rotationDegrees(180.0F));poseStack.mulPose(Vector3f.XP.rotationDegrees(-15.0F));
                     poseStack.translate(-0.5, -1.17, -0.5);
                 }
-                case LARGE -> {
-//                    poseStack.scale(1.5F, 1.5f, 1.5f);
-                    poseStack.scale(2F, 2f, 2f);
-                    poseStack.mulPose(Vector3f.YP.rotationDegrees(180.0F));
-                    poseStack.mulPose(Vector3f.ZP.rotationDegrees(180.0F));
-                    poseStack.mulPose(Vector3f.XP.rotationDegrees(-15.0F));
-                    poseStack.translate(-0.45, -1.015, -0.5);
-                }
-                case LONG -> {
-                    poseStack.scale(2F, 2f, 2f);
-                    poseStack.mulPose(Vector3f.YP.rotationDegrees(180.0F));
-                    poseStack.mulPose(Vector3f.ZP.rotationDegrees(180.0F));
-                    poseStack.mulPose(Vector3f.XP.rotationDegrees(-15.0F));
-                    poseStack.translate(-0.45, -0.915, -0.5);
-                }
                 case TALL -> {
-//                    poseStack.scale(1.75F, 1.75f, 1.75f);
-                    poseStack.scale(2F, 2f, 2f);
-                    poseStack.mulPose(Vector3f.YP.rotationDegrees(180.0F));
-                    poseStack.mulPose(Vector3f.ZP.rotationDegrees(180.0F));
-                    poseStack.mulPose(Vector3f.XP.rotationDegrees(-15.0F));
+                    poseStack.scale(2F, 2f, 2f);      poseStack.mulPose(Vector3f.YP.rotationDegrees(180.0F));poseStack.mulPose(Vector3f.ZP.rotationDegrees(180.0F));poseStack.mulPose(Vector3f.XP.rotationDegrees(-15.0F));
                     poseStack.translate(-0.595, -1.015, -0.5);
                 }
+                case LONG -> {
+                    poseStack.scale(2F, 2f, 2f);      poseStack.mulPose(Vector3f.YP.rotationDegrees(180.0F));poseStack.mulPose(Vector3f.ZP.rotationDegrees(180.0F));poseStack.mulPose(Vector3f.XP.rotationDegrees(-15.0F));
+                    poseStack.translate(-0.45, -0.915, -0.5);
+                }
+                case LARGE -> {
+                    poseStack.scale(2F, 2f, 2f);      poseStack.mulPose(Vector3f.YP.rotationDegrees(180.0F));poseStack.mulPose(Vector3f.ZP.rotationDegrees(180.0F));poseStack.mulPose(Vector3f.XP.rotationDegrees(-15.0F));
+                    poseStack.translate(-0.45, -1.015, -0.5);
+                }
+                case X3Y2 -> {
+                    poseStack.scale(2F, 2f, 2f); poseStack.mulPose(Vector3f.YP.rotationDegrees(180.0F));poseStack.mulPose(Vector3f.ZP.rotationDegrees(180.0F));poseStack.mulPose(Vector3f.XP.rotationDegrees(-15.0F));
+                    poseStack.translate(-0.5f, -1.015f, -0.5f);
+                }
+                case X3Y3 -> {
+                    poseStack.scale(2F, 2f, 2f); poseStack.mulPose(Vector3f.YP.rotationDegrees(180.0F));poseStack.mulPose(Vector3f.ZP.rotationDegrees(180.0F));poseStack.mulPose(Vector3f.XP.rotationDegrees(-15.0F));
+                    poseStack.translate(-0.5f, -0.5f, -0.5f);
+                }
+                case X4Y2 -> {
+                    poseStack.scale(2F, 2f, 2f); poseStack.mulPose(Vector3f.YP.rotationDegrees(180.0F));poseStack.mulPose(Vector3f.ZP.rotationDegrees(180.0F));poseStack.mulPose(Vector3f.XP.rotationDegrees(-15.0F));
+                    poseStack.translate(-0.5f, -1.015f, -0.5f);
+                }
+                case X4Y3 -> {
+                    poseStack.scale(2F, 2f, 2f); poseStack.mulPose(Vector3f.YP.rotationDegrees(180.0F));poseStack.mulPose(Vector3f.ZP.rotationDegrees(180.0F));poseStack.mulPose(Vector3f.XP.rotationDegrees(-15.0F));
+                    poseStack.translate(-0.5f, -0.5f, -0.5f);
+                }
+                case X4Y4 -> {
+                    poseStack.scale(2F, 2f, 2f); poseStack.mulPose(Vector3f.YP.rotationDegrees(180.0F));poseStack.mulPose(Vector3f.ZP.rotationDegrees(180.0F));poseStack.mulPose(Vector3f.XP.rotationDegrees(-15.0F));
+                    poseStack.translate(-0.9f, -1.015f, -0.5f);
+                }
+
             }
 
             RenderProp.INSTANCE.getItemStackRenderer().renderByItem(itemstack, ItemTransforms.TransformType.FIXED, poseStack, bufferSource, i, 0);

@@ -252,20 +252,36 @@ public class GuiInstrument extends Screen {
         setFocused(null);
         super.keyPressed(keyCode, scanCode, modifiers);
 
-        int firstScanCode = GLFW.glfwGetKeyScancode(GLFW.GLFW_KEY_Q);
-        int lastScanCode = firstScanCode + 11;
-        if (scanCode >= firstScanCode && scanCode <= lastScanCode) {
-            int noteId = scanCode - firstScanCode + 12 * Math.max(0, currentKeyboardOctave);
-            playSound(noteId);
-        }
+        int firstScanCode1 = GLFW.glfwGetKeyScancode(GLFW.GLFW_KEY_1); int lastScanCode1 = firstScanCode1 + 11;
+        int firstScanCodeQ = GLFW.glfwGetKeyScancode(GLFW.GLFW_KEY_Q); int lastScanCodeQ = firstScanCodeQ + 11;
+        int firstScanCodeA = GLFW.glfwGetKeyScancode(GLFW.GLFW_KEY_A); int lastScanCodeA = firstScanCodeA + 11;
+        int firstScanCodeZ = GLFW.glfwGetKeyScancode(GLFW.GLFW_KEY_Z); int lastScanCodeZ = firstScanCodeZ + 11;
 
-        if(keyCode == GLFW.GLFW_KEY_A){
-            decreaseOctave();
-        }
-        else if(keyCode == GLFW.GLFW_KEY_S){
-            increaseOctave();
-        }
-        return true;
+        if (scanCode >= firstScanCodeZ && scanCode <= lastScanCodeZ) {
+            playSound(scanCode - firstScanCodeZ + 12 * Math.max(0, currentKeyboardOctave));
+		} else if (scanCode >= firstScanCodeA && scanCode <= lastScanCodeA) {
+            playSound(scanCode - firstScanCodeA + 12 * Math.max(0, currentKeyboardOctave) +12);
+		} else if (scanCode >= firstScanCodeQ && scanCode <= lastScanCodeQ) {
+            playSound(scanCode - firstScanCodeQ + 12 * Math.max(0, currentKeyboardOctave) +24);
+		} else if (scanCode >= firstScanCode1 && scanCode <= lastScanCode1) {
+            playSound(scanCode - firstScanCode1 + 12 * Math.max(0, currentKeyboardOctave) +36);
+		}
+
+		/*
+		 if (scanCode >= 44 && scanCode < 53) { //52 61
+			 playSound(scanCode - 44 + 12*Math.max(0, currentKeyboardOctave)); //52
+		 } else if (scanCode >= 30 && scanCode < 40) { //38 48
+			 playSound(scanCode - 25 + 12*Math.max(0, currentKeyboardOctave)); //33
+		 } else if (scanCode >= 16 && scanCode < 27) { //24 35
+			 playSound(scanCode - 6 + 12*Math.max(0, currentKeyboardOctave)); //14
+		 } else if (scanCode >= 2 && scanCode < 13) { //10 21
+			 playSound(scanCode + 13 + 12*Math.max(0, currentKeyboardOctave)); //5
+		 }
+		*/
+
+		if (keyCode == GLFW.GLFW_KEY_LEFT_CONTROL) {decreaseOctave();}
+			else if (keyCode == GLFW.GLFW_KEY_LEFT_SHIFT) {increaseOctave();}
+		return true;
     }
 
     private void decreaseOctave() {
@@ -286,14 +302,50 @@ public class GuiInstrument extends Screen {
 
     @Override
     public boolean keyReleased(int keyCode, int scanCode, int modifiers){
+
+        int firstScanCode1 = GLFW.glfwGetKeyScancode(GLFW.GLFW_KEY_1); int lastScanCode1 = firstScanCode1 + 11;
+        int firstScanCodeQ = GLFW.glfwGetKeyScancode(GLFW.GLFW_KEY_Q); int lastScanCodeQ = firstScanCodeQ + 11;
+        int firstScanCodeA = GLFW.glfwGetKeyScancode(GLFW.GLFW_KEY_A); int lastScanCodeA = firstScanCodeA + 11;
+        int firstScanCodeZ = GLFW.glfwGetKeyScancode(GLFW.GLFW_KEY_Z); int lastScanCodeZ = firstScanCodeZ + 11;
+
+        if (scanCode >= firstScanCodeZ && scanCode <= lastScanCodeZ) {
+            stopSound(scanCode - firstScanCodeZ + 12 * Math.max(0, currentKeyboardOctave));
+		} else if (scanCode >= firstScanCodeA && scanCode <= lastScanCodeA) {
+            stopSound(scanCode - firstScanCodeA + 12 * Math.max(0, currentKeyboardOctave) +12);
+		} else if (scanCode >= firstScanCodeQ && scanCode <= lastScanCodeQ) {
+            stopSound(scanCode - firstScanCodeQ + 12 * Math.max(0, currentKeyboardOctave) +24);
+		} else if (scanCode >= firstScanCode1 && scanCode <= lastScanCode1) {
+            stopSound(scanCode - firstScanCode1 + 12 * Math.max(0, currentKeyboardOctave) +36);
+		}
+
+		/*
         int firstScanCode = GLFW.glfwGetKeyScancode(GLFW.GLFW_KEY_Q);
         int lastScanCode = firstScanCode + 11;
         if (scanCode >= firstScanCode && scanCode <= lastScanCode) {
             int noteId = scanCode - firstScanCode + 12 * Math.max(0, currentKeyboardOctave);
             stopSound(noteId);
         }
+		*/
+
+        return true;
+
+    }
+
+	/*
+    @Override
+    public boolean keyReleased(int keyCode, int scanCode, int modifiers){
+        if (scanCode >= 44 && scanCode < 53) { //52 61
+            stopSound(scanCode - 44 + 12*Math.max(0, currentKeyboardOctave)); //52
+        } else if (scanCode >= 30 && scanCode < 40) { //38 48
+            stopSound(scanCode - 25 + 12*Math.max(0, currentKeyboardOctave)); //33
+        } else if (scanCode >= 16 && scanCode < 27) { //24 35
+            stopSound(scanCode - 6 + 12*Math.max(0, currentKeyboardOctave)); //14
+        } else if (scanCode >= 2 && scanCode < 13) { //10 21
+            stopSound(scanCode + 13 + 12*Math.max(0, currentKeyboardOctave)); //5
+        }
         return true;
     }
+	*/
 
     @Override
     public void removed() {

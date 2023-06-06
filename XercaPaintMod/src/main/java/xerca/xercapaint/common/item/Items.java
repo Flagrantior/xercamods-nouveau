@@ -21,9 +21,14 @@ import static xerca.xercapaint.common.XercaPaint.Null;
 public final class Items {
     public static final ItemPalette ITEM_PALETTE = Null();
     public static final ItemCanvas ITEM_CANVAS = Null();
-    public static final ItemCanvas ITEM_CANVAS_LARGE = Null();
-    public static final ItemCanvas ITEM_CANVAS_LONG = Null();
     public static final ItemCanvas ITEM_CANVAS_TALL = Null();
+    public static final ItemCanvas ITEM_CANVAS_LONG = Null();
+    public static final ItemCanvas ITEM_CANVAS_LARGE = Null();
+    public static final ItemCanvas ITEM_CANVAS_X3Y2 = Null();
+    public static final ItemCanvas ITEM_CANVAS_X3Y3 = Null();
+    public static final ItemCanvas ITEM_CANVAS_X4Y2 = Null();
+    public static final ItemCanvas ITEM_CANVAS_X4Y3 = Null();
+    public static final ItemCanvas ITEM_CANVAS_X4Y4 = Null();
     public static final ItemEasel ITEM_EASEL = Null();
 
     public static final RecipeSerializer<RecipeCraftPalette> CRAFTING_SPECIAL_PALETTE_CRAFTING = Null();
@@ -50,9 +55,14 @@ public final class Items {
             event.getRegistry().registerAll(
                     new ItemPalette("item_palette"),
                     new ItemCanvas("item_canvas", CanvasType.SMALL),
-                    new ItemCanvas("item_canvas_large", CanvasType.LARGE),
-                    new ItemCanvas("item_canvas_long", CanvasType.LONG),
                     new ItemCanvas("item_canvas_tall", CanvasType.TALL),
+                    new ItemCanvas("item_canvas_long", CanvasType.LONG),
+                    new ItemCanvas("item_canvas_large", CanvasType.LARGE),
+                    new ItemCanvas("item_canvas_x3y2", CanvasType.X3Y2),
+                    new ItemCanvas("item_canvas_x3y3", CanvasType.X3Y3),
+                    new ItemCanvas("item_canvas_x4y2", CanvasType.X4Y2),
+                    new ItemCanvas("item_canvas_x4y3", CanvasType.X4Y3),
+                    new ItemCanvas("item_canvas_x4y4", CanvasType.X4Y4),
                     new ItemEasel(new Item.Properties().tab(Items.paintTab).stacksTo(1)).setRegistryName("item_easel")
             );
         }

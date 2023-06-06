@@ -94,9 +94,14 @@ public class ClientStuff {
                 ItemPropertyFunction colors = (stack, worldIn, entityIn, i) ->
                         ((float)ItemPalette.basicColorCount(stack)) / 16.0F;
                 ItemProperties.register(Objects.requireNonNull(Items.ITEM_CANVAS), new ResourceLocation(XercaPaint.MODID, "drawn"), drawn);
-                ItemProperties.register(Objects.requireNonNull(Items.ITEM_CANVAS_LARGE), new ResourceLocation(XercaPaint.MODID, "drawn"), drawn);
-                ItemProperties.register(Objects.requireNonNull(Items.ITEM_CANVAS_LONG), new ResourceLocation(XercaPaint.MODID, "drawn"), drawn);
                 ItemProperties.register(Objects.requireNonNull(Items.ITEM_CANVAS_TALL), new ResourceLocation(XercaPaint.MODID, "drawn"), drawn);
+                ItemProperties.register(Objects.requireNonNull(Items.ITEM_CANVAS_LONG), new ResourceLocation(XercaPaint.MODID, "drawn"), drawn);
+                ItemProperties.register(Objects.requireNonNull(Items.ITEM_CANVAS_LARGE), new ResourceLocation(XercaPaint.MODID, "drawn"), drawn);
+                ItemProperties.register(Objects.requireNonNull(Items.ITEM_CANVAS_X3Y2), new ResourceLocation(XercaPaint.MODID, "drawn"), drawn);
+                ItemProperties.register(Objects.requireNonNull(Items.ITEM_CANVAS_X3Y3), new ResourceLocation(XercaPaint.MODID, "drawn"), drawn);
+                ItemProperties.register(Objects.requireNonNull(Items.ITEM_CANVAS_X4Y2), new ResourceLocation(XercaPaint.MODID, "drawn"), drawn);
+                ItemProperties.register(Objects.requireNonNull(Items.ITEM_CANVAS_X4Y3), new ResourceLocation(XercaPaint.MODID, "drawn"), drawn);
+                ItemProperties.register(Objects.requireNonNull(Items.ITEM_CANVAS_X4Y4), new ResourceLocation(XercaPaint.MODID, "drawn"), drawn);
                 ItemProperties.register(Objects.requireNonNull(Items.ITEM_PALETTE), new ResourceLocation(XercaPaint.MODID, "colors"), colors);
             });
         }

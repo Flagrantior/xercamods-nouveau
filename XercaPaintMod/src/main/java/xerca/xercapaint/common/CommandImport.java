@@ -56,9 +56,14 @@ public class CommandImport {
             ItemStack itemStack;
             switch (CanvasType.fromByte(canvasType)){
                 case SMALL -> itemStack = new ItemStack(Items.ITEM_CANVAS);
-                case LONG -> itemStack = new ItemStack(Items.ITEM_CANVAS_LONG);
                 case TALL -> itemStack = new ItemStack(Items.ITEM_CANVAS_TALL);
+                case LONG -> itemStack = new ItemStack(Items.ITEM_CANVAS_LONG);
                 case LARGE -> itemStack = new ItemStack(Items.ITEM_CANVAS_LARGE);
+                case X3Y2 -> itemStack = new ItemStack(Items.ITEM_CANVAS_X3Y2);
+                case X3Y3 -> itemStack = new ItemStack(Items.ITEM_CANVAS_X3Y3);
+                case X4Y2 -> itemStack = new ItemStack(Items.ITEM_CANVAS_X4Y2);
+                case X4Y3 -> itemStack = new ItemStack(Items.ITEM_CANVAS_X4Y3);
+                case X4Y4 -> itemStack = new ItemStack(Items.ITEM_CANVAS_X4Y4);
                 default -> {
                     XercaPaint.LOGGER.error("Invalid canvas type");
                     return;
@@ -78,9 +83,14 @@ public class CommandImport {
             if(((ItemCanvas)mainHand.getItem()).getCanvasType() != CanvasType.fromByte(canvasType)){
                 Component type = Objects.requireNonNull(Items.ITEM_CANVAS).getName(ItemStack.EMPTY);
                 switch (CanvasType.fromByte(canvasType)){
-                    case LONG -> type = Objects.requireNonNull(Items.ITEM_CANVAS_LONG).getName(ItemStack.EMPTY);
                     case TALL -> type = Objects.requireNonNull(Items.ITEM_CANVAS_TALL).getName(ItemStack.EMPTY);
+                    case LONG -> type = Objects.requireNonNull(Items.ITEM_CANVAS_LONG).getName(ItemStack.EMPTY);
                     case LARGE -> type = Objects.requireNonNull(Items.ITEM_CANVAS_LARGE).getName(ItemStack.EMPTY);
+                    case X3Y2 -> type = Objects.requireNonNull(Items.ITEM_CANVAS_X3Y2).getName(ItemStack.EMPTY);
+                    case X3Y3 -> type = Objects.requireNonNull(Items.ITEM_CANVAS_X3Y3).getName(ItemStack.EMPTY);
+                    case X4Y2 -> type = Objects.requireNonNull(Items.ITEM_CANVAS_X4Y2).getName(ItemStack.EMPTY);
+                    case X4Y3 -> type = Objects.requireNonNull(Items.ITEM_CANVAS_X4Y3).getName(ItemStack.EMPTY);
+                    case X4Y4 -> type = Objects.requireNonNull(Items.ITEM_CANVAS_X4Y4).getName(ItemStack.EMPTY);
                 }
                 player.sendMessage(new TranslatableComponent("import.fail.2", type).withStyle(ChatFormatting.RED), Util.NIL_UUID);
                 return;

@@ -1,7 +1,8 @@
-# Minecraft Mods
-This repo consists of my three Minecraft mods: XercaMod, Music Maker Mod and Joy of Painting
-
-For information about the mods, visit the following pages:
+## Fork of
 - https://ercanserteli.com/xercamod
 - https://ercanserteli.com/music-maker-mod
 - https://ercanserteli.com/joy-of-painting
+
+## Fork details
+- Encrease music instrument GUI octaves to 4
+- Encrease paint canvas sizes to 3x2, 3x3, 4x2, 4x3 and 4x4
